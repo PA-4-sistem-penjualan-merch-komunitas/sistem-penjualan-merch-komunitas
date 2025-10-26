@@ -32,7 +32,13 @@ def buat_akun():
     try:
         print("=== BUAT AKUN USER ===")
         username = input("Masukkan username : ")
+        if username.strip() == "":
+            print("Username tidak boleh kosong!")
+            return
         password = pwinput.pwinput("Masukkan password : ")
+        if password.strip() == "":
+            print("Username tidak boleh kosong!")
+            return
         saldo_awal = 500000
         with open(database_user, "a", newline="") as file:
             tulis = csv.writer(file)
@@ -319,4 +325,5 @@ while True:
             print("Pilihan tidak sesuai.")
     except (KeyboardInterrupt, EOFError):
         print("Program dihentikan.")
+
         break
